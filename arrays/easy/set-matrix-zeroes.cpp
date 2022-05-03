@@ -1,9 +1,8 @@
 class Solution {
 public:
     void setZeroes(vector<vector<int>>& matrix) {
-     vector<int> rows;
-      vector<int> col;
-      int k;
+     vector<long int> rows;
+      vector<long int> col;
       for(int i=0;i<matrix.size();i++){
         for(int j=0;j<matrix[0].size();j++){
           if(matrix[i][j]==0){
@@ -12,13 +11,14 @@ public:
           }
         }
       }
-      for(int i=0;i<matrix.size();i++){
+      for(int i=0;i<rows.size();i++){
         for(int j=0;j<matrix[0].size();j++){
-          for(k=0;k<rows.size();k++){
-          if(i==rows[k] || j==col[k]){
-            matrix[i][j]=0;
-            }
-          }
+            matrix[rows[i]][j]=0;
+        }
+      }
+      for(int j=0;j<matrix.size();j++){
+        for(int i=0;i<col.size();i++){
+            matrix[j][col[i]]=0;
         }
       }
     }
